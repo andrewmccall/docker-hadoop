@@ -1,5 +1,5 @@
-FROM bde2020/hadoop-base:1.1.0-hadoop2.7.1-java8
-MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
+FROM andrewmccall/hadoop-base
+MAINTAINER Andrew McCall <andrew@andrewmccall.com>
 
 HEALTHCHECK CMD curl -f http://localhost:50070/ || exit 1
 

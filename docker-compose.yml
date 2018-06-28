@@ -2,7 +2,7 @@ version: "2"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-namenode
     container_name: namenode
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
@@ -10,9 +10,9 @@ services:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop.env
-  
+
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-resourcemanager
     container_name: resourcemanager
     depends_on:
       - namenode
@@ -20,9 +20,9 @@ services:
       - datanode2
     env_file:
       - ./hadoop.env
-  
+
   historyserver:
-    image: bde2020/hadoop-historyserver:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-historyserver
     container_name: historyserver
     depends_on:
       - namenode
@@ -32,9 +32,9 @@ services:
       - hadoop_historyserver:/hadoop/yarn/timeline
     env_file:
       - ./hadoop.env
-  
+
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-nodemanager
     container_name: nodemanager1
     depends_on:
       - namenode
@@ -42,9 +42,9 @@ services:
       - datanode2
     env_file:
       - ./hadoop.env
-  
+
   datanode1:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-datanode
     container_name: datanode1
     depends_on:
       - namenode
@@ -52,9 +52,9 @@ services:
       - hadoop_datanode1:/hadoop/dfs/data
     env_file:
       - ./hadoop.env
-  
+
   datanode2:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-datanode
     container_name: datanode2
     depends_on:
       - namenode
@@ -62,9 +62,9 @@ services:
       - hadoop_datanode2:/hadoop/dfs/data
     env_file:
       - ./hadoop.env
-  
+
   datanode3:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: andrewmccall/hadoop-datanode
     container_name: datanode3
     depends_on:
       - namenode

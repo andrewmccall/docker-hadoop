@@ -1,6 +1,5 @@
 FROM nginx
-
-MAINTAINER "Ivan Ermilov <mailto:ivan.s.ermilov@gmail.com>"
+MAINTAINER Andrew McCall <andrew@andrewmccall.com>
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY materialize.min.css /data/bde-css/materialize.min.css
