@@ -6,4 +6,8 @@ if [ ! -d $datadir ]; then
   exit 2
 fi
 
+ulimit -c unlimited
+
 $HADOOP_PREFIX/bin/hdfs --config $HADOOP_CONF_DIR datanode
+
+cat /hs_err*
